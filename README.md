@@ -81,7 +81,10 @@ Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富
 - 更多....
 
 #### 我的其他开源项目
->[😜博客全栈系统 vue2 + node.js](https://gitee.com/Z568_568/all-blog-sys.git)
+
+> [👆vue3个人主页简历个人博客前后端分离系统](https://gitee.com/Z568_568/ZHOUYI-Homepage.git)
+
+>[😜vue2博客全栈系统 vue2 + node.js](https://gitee.com/Z568_568/all-blog-sys.git)
  
 >[个人文件管理+图床管理服务系统](https://gitee.com/Z568_568/zy.files.sys.git)
  
