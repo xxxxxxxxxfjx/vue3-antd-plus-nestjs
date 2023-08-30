@@ -1,4 +1,4 @@
-# ZY·Admin【完整版】 Vue3-Antd-Plus (文档更新中)
+# Vue3-Antd-Plus (文档更新中)
 
 <p align="center">
   <a href="https://gitee.com/Z568_568/mango-blog-system.git">
