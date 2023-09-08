@@ -1,4 +1,4 @@
-# ZY·Admin【完整版】 Vue3-Antd-Plus (文档更新中)
+# Vue3-Antd-Plus (文档更新中)
 
 <p align="center">
   <a href="https://gitee.com/Z568_568/mango-blog-system.git">
@@ -81,6 +81,8 @@ Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富
 - 更多....
 
 #### 我的其他开源项目
+
+> [Vue3-Antd-Admin-template管理端简洁版（纯前端）](https://gitee.com/Z568_568/ZY-Admin-template.git)
 
 > [👆vue3个人主页简历个人博客前后端分离系统](https://gitee.com/Z568_568/ZHOUYI-Homepage.git)
 
