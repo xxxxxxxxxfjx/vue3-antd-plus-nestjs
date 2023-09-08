@@ -1,4 +1,4 @@
-# Vue3-Antd-Plus (文档更新中)
+# ZY·Admin【完整版】 Vue3-Antd-Plus (文档更新中)
 
 <p align="center">
   <a href="https://gitee.com/Z568_568/mango-blog-system.git">
@@ -171,15 +171,4 @@ Vue3-Antd-Plus是一个开源项目，根据MIT许可证发布。有关更多信
  <img src="doc/img_7.png" width = "150" height = "150" alt="图片名称" align=center />
  <img src="doc/img_8.png" width = "150" height = "150" alt="图片名称" align=center />
 
-#### 感谢下面小伙伴发来的赞赏
 
-|昵称|金额|
-|-|-|
-|王**|66.6元|
-|道**|25元|
-|小**|30元|
-|开心**|50元|
-|琳**|8.8元|
-|凯凯*|80元|
-|军**|18.8元|
-|吴**|5元|
