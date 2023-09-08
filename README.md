@@ -27,11 +27,14 @@
 ![MongoDB](https://img.shields.io/badge/-MongoDB-yellow?logo=MongoDB&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富的组件和工具，帮助开发者快速搭建和开发管理后台应用。
+[Vue3-Antd-Plus](https://gitee.com/Z568_568/vue3-antd-plus.git)是一个现代化的前后端分离管理系统，旨在为开发者提供一套含有基础功能的组件和工具，以加速管理后台应用的开发过程。该项目经过二次封装组件、提供实用的工具、自定义的钩子函数、支持动态菜单和权限校验，甚至实现了按钮级别的权限控制等功能。
 
-**基于 Vue 3 + JavaScript + Pinia +Vite + Ant Design Vue 构建 管理后台+web前台+Node后端代码一整套**  
+此项目采用了前端领域最新的技术栈，包括但不限于 **Vue 3、Vite、Pinia、Node.js、Antd** 等。因此，它不仅可以作为一个出色的项目启动模板，帮助你快速构建企业级中后台产品原型，还可以作为学习 Vue 3、Vite、JavaScript、Pinia、Node.js、MongoDB 等主流技术的示例项目。
 
- 做这个项目主要原因：全网大都是 Vue3 + TypeScript 版本的,so so 决定做一个JavaScript版本的供大家使用
+这个项目致力于跟进前端技术的最新进展，将最新的技术应用于项目中。 因此，它不仅可以用于实际应用的开发，还可以作为学习和实验的理想资源，帮助你不断掌握前端领域的最新知识和技术。
+
+无论你是一个开发者寻找一个可靠的管理后台模板，还是一个学习者想要深入了解现代前端技术，Vue3-Antd-Plus 都是一个非常有价值的项目。
+**因为它弥补了不习惯使用TypeScript开发的同学，使用JavaScript版本就能更快上手熟悉**。
 
 <img  src="doc/Vue3-Antd-Plus.png">
 
