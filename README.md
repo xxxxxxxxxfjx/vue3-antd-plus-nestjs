@@ -18,6 +18,15 @@
 </p>
 </p>
 
+![Vue3](https://img.shields.io/badge/-Vue-34495e?logo=vue.js)
+![HTML5](https://img.shields.io/badge/-HTML5-red?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-blue?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?logo=javascript&logoColor=white)
+![node](https://img.shields.io/badge/-Nodejs-red?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/-Express-green?logo=Express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/-MongoDB-yellow?logo=MongoDB&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+
 Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富的组件和工具，帮助开发者快速搭建和开发管理后台应用。
 
 **基于 Vue 3 + JavaScript + Pinia +Vite + Ant Design Vue 构建 管理后台+web前台+Node后端代码一整套**  
@@ -97,6 +106,18 @@ Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富
 
 ## 快速开始
 
+
+默认你的电脑已经安装好`Nodejs` `Vue` `MongoDB` 以及代码编辑器等环境
+我的环境配置可参考：
+
+``` shell
+Nodejs : v14.18.1
+@vue/cli : v5.0.8
+"express": "~4.16.1"
+MongoDB: v6.0.5
+```
+
+
 1. 克隆本仓库到本地
 
    ```
@@ -123,6 +144,9 @@ Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富
 ## admin添加路由页面
 
 ```
+
+启动成功后超级管理员账号密码： **账号：admin  密码：admin** 
+
 /**
  * 在主框架内显示
  * 路由配置说明
