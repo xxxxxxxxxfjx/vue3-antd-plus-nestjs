@@ -7,12 +7,11 @@
 
 <h3 align="center">" 🔥 Vue3-Antd-Plus "</h3>
   <p align="center">
-    基于 Vue3 + js 现代化的管理系统【完整版】
+    基于 Vue3 + JavaScript 现代化的管理系统【完整版】
     <br />
     <a href="https://gitee.com/Z568_568/vue3-antd-plus.git" target="_blank"><strong>探索本项目的源码 »</strong></a>
 <br />
-<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (文档更新中)»</strong></a>
-
+<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
 
 [comment]: <> (<a href='https://gitee.com/Z568_568/ZY-Admin/stargazers'><img src='https://gitee.com/Z568_568/ZY-Admin/badge/star.svg?theme=dark' alt='star'></img></a>)
