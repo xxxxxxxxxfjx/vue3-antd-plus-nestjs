@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from) => {
-    // util.title(to.meta.title)
+
 })
 
 export default router

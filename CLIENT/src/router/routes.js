@@ -25,15 +25,7 @@ const frameIn = [
  * 在主框架之外显示
  */
 const frameOut = [
-    // 登录
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     meta: {
-    //         title: '登录',
-    //     },
-    //     component: _import('system/login')
-    // }
+
 ]
 
 /**
