@@ -182,8 +182,6 @@ export default {
                     "infoColor": "#826d54"
                 }
             }
-
-
         ]
     },
 }

@@ -85,7 +85,6 @@ const frameIn = [
                         component: () => import('@/views/demo/pages/dir-page-info.vue'),
                     }
                 ]
-
             },
             {
                 path: '/components',
@@ -214,7 +213,6 @@ const frameIn = [
                     },
                 ]
             },
-
             {
                 path: '/sys',
                 name: 'sys',

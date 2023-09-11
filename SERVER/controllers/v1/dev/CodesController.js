@@ -31,7 +31,6 @@ const {actionRecords} = require("@middlewares/actionLogMiddleware");
 exports.codeslist = [
     tokenAuthentication,
     checkApiPermission('dev:codes:list'),
-
     async (req, res, next) => {
         try {
             let query = req.body;

@@ -21,7 +21,6 @@
           />
         </template>
       </template>
-
     </a-menu>
   </section>
 </template>
@@ -124,8 +123,6 @@ const handleMenuItem = (item) => {
     tabsStore.addTabs(item)
     tabsStore.currentSet(path)
   }
-
-
 };
 
 
