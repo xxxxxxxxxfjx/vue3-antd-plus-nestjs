@@ -11,7 +11,7 @@
     <br />
     <a href="https://gitee.com/Z568_568/vue3-antd-plus.git" target="_blank"><strong>探索本项目的源码 »</strong></a>
 <br />
-    <a href="https://z568_568.gitee.io/zy-admin-template" target="_blank"><strong>⛳ 在线预览 »</strong></a>
+    <a href="https://z568_568.gitee.io/zy-admin-template" target="_blank"><strong>⛳ 纯前端在线预览 »</strong></a>
 <br />
 <a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
