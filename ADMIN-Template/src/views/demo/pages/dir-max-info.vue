@@ -15,7 +15,6 @@
         isFullscreen.value = !isFullscreen.value;
         let ele = maxRef.value
         if (isFullscreen.value) {
-            router.push('/dataCenter')
             // 进入全屏
             if (ele.requestFullscreen) {
                 ele.requestFullscreen();
