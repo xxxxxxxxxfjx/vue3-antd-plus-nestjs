@@ -390,14 +390,6 @@ const frameOut = [
             title: '登录',
         },
         component: () => import('@/views/sys/login/dir-login-info.vue'),
-    },
-    {
-        path: '/dataCenter',
-        name: 'dataCenter',
-        meta: {
-            title: '大屏展示',
-        },
-        component: () => import('@/views/demo/dataCenter/index.vue'),
     }
 ]
 
