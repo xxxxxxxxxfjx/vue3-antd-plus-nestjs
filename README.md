@@ -50,7 +50,7 @@
 ---
 
 
-## 截图(管理后台+web前台)
+## 截图(管理后台+web前台) QQ群：529675917
 <img  src="doc/img_9.png" width = "300" height = "150">
 <img  src="doc/img.png" width = "300" height = "150">
 <img src="doc/img_1.png" width = "300" height = "150">
