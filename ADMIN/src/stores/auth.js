@@ -44,6 +44,7 @@ export const useAuthStore = defineStore('auth', () => {
                     })
                 })
                 rolesFindOne({id: res.data.roleId}).then(role => {
+                    // 暂存权限信息
                     setPerm(role.data.perms)
                     // 导航到登录页或其他适当的页面
                     resolve({...res.data, ...role.data})

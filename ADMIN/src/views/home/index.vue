@@ -13,6 +13,8 @@
           <br>
           对快速构建Vue3全栈项目有很大的帮助，解决每次新建项目基础配置的烦恼.
           <br>
+        <p style="font-weight: bold">无论你是一个开发者寻找一个可靠的管理后台模板，还是一个学习者想要深入了解现代前端技术，Vue3-Antd-Plus 都是一个非常有价值的项目。
+          因为它弥补了不习惯使用TypeScript开发的同学，使用JavaScript版本就能更快上手熟悉。</p>
         <p style="font-weight: bold">项目如果对您有帮助，希望能得到您的 star ✨</p>
         </p>
 
@@ -25,15 +27,15 @@
         <a href="http://www.zhouyi.run" target="_blank">
           <a-button type="primary">个人主页</a-button>
         </a>
-        <a-button type="primary" @click="getDataList">请求数据</a-button>
+        <a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank">
+          <a-button type="dashed">在线文档</a-button>
+        </a>
+        <a-button type="primary" @click="getDataList">模拟请求数据</a-button>
       </header>
       <div class="zy-code">
         <code>
           $ https://gitee.com/Z568_568/vue3-antd-plus.git
         </code>
-        <code>$ npm i</code>
-        <code>$ npm run dev</code>
-        <code>$ npm run build</code>
       </div>
     </section>
     <section class="intro">
@@ -45,6 +47,16 @@
         <a target="_blank" title="csdn" href="https://blog.csdn.net/html0010?spm=1011.2124.3001.5343"><i
             class="iconfont icon-csdn"></i></a>
       </div>
+      <a-row justify="center" align="top" :gutter="16">
+        <a-col>
+          <a-card :bordered="true">
+            <p>✨vue3-antd-plus在线文档：<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank">https://z568_568.gitee.io/vue3-antd-plus</a>
+            </p>
+            <p>✨QQ交流群: 529675917</p>
+            <p>✨作者邮箱：yizhou568@gmail.com</p>
+          </a-card>
+        </a-col>
+      </a-row>
       <ZySectionHeader title="其他开源项目" titleNum="01"/>
       <ZyWorksSection :dataList="worksList"/>
 
@@ -66,6 +78,7 @@ import ZyWorksSection from "../../components/common/ZyWorksSection.vue";
 import ZySectionHeader from "../../components/common/ZySectionHeader.vue";
 import img_7 from "../../assets/img/img_7.png";
 import img_8 from "../../assets/img/img_8.png";
+
 const getDataList = async function () {
   try {
     const data = await users_opt_logsList()
@@ -258,6 +271,7 @@ const worksList = reactive([
       margin: 5px;
     }
   }
+
   .zs-list {
     display: flex;
 

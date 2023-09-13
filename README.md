@@ -13,10 +13,6 @@
 <br />
 <a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
-
-[comment]: <> (<a href='https://gitee.com/Z568_568/ZY-Admin/stargazers'><img src='https://gitee.com/Z568_568/ZY-Admin/badge/star.svg?theme=dark' alt='star'></img></a>)
-
-[comment]: <> (<a href='https://gitee.com/Z568_568/ZY-Admin/members'><img src='https://gitee.com/Z568_568/ZY-Admin/badge/fork.svg?theme=dark' alt='fork'></img></a>)
 </p>
 </p>
 
@@ -37,6 +33,16 @@
 
 无论你是一个开发者寻找一个可靠的管理后台模板，还是一个学习者想要深入了解现代前端技术，Vue3-Antd-Plus 都是一个非常有价值的项目。
 **因为它弥补了不习惯使用TypeScript开发的同学，使用JavaScript版本就能更快上手熟悉**。
+
+
+|名称|类型|
+|-|-|
+|ADMIN|管理端|
+|CLIENT|前台端|
+|SERVER|服务端|
+|ADMIN-Template|管理端(纯前端模板)|
+
+
 
 <img  src="doc/Vue3-Antd-Plus.png">
 
