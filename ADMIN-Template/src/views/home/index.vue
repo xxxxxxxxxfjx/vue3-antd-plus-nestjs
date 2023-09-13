@@ -6,7 +6,7 @@
     <hr/>
     <section class="one">
       <header class="major">
-        <h1 style="color: #2ecc40">Vue3-Antd-Plus-管理端（纯前端模板）</h1>
+        <h1>Vue3-Antd-Plus-管理端（纯前端模板）</h1>
         <p class="sub-title">基于 Vue 3 + JavaScript + Pinia +Vite + <a href="https://www.antdv.com/docs/vue/getting-started-cn">Ant
           Design Vue</a>.</p>
         <p>Vue3-Antd-Plus是一个现代化的管理系统，提供了一系列功能丰富的组件和工具，帮助开发者快速搭建和开发前后台管理应用。
