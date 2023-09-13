@@ -6,6 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [vue(), vueJsx()],
+    base:'/zy-admin-template/',
     server: {
         //本地服务器主机名 配置后可以使用本地网络访问
         host: '0.0.0.0',
