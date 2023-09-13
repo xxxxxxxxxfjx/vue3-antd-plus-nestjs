@@ -5,11 +5,11 @@
     <img src="doc/logo.png" alt="Logo" width="150" height="210">
   </a>
 
-<h3 align="center">" 🔥 Vue3-Antd-Admin-Template "</h3>
+<h3 align="center">" 🔥 Vue3-Antd-Plus "</h3>
   <p align="center">
-    基于 Vue3 + JavaScript 现代化的管理系统【纯前端】
+    基于 Vue3 + JavaScript 现代化的管理系统【完整版】
     <br />
-    <a href="https://gitee.com/Z568_568/vue3-antd-plus.git" target="_blank"><strong>探索【完整版】本项目的源码 »</strong></a>
+    <a href="https://gitee.com/Z568_568/vue3-antd-plus.git" target="_blank"><strong>探索本项目的源码 »</strong></a>
 <br />
 <a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
@@ -40,7 +40,7 @@
 |ADMIN|管理端|
 |CLIENT|前台端|
 |SERVER|服务端|
-|ADMIN-Template|✨当前项目管理端(纯前端模板)|
+|ADMIN-Template|管理端(纯前端模板)|
 
 
 
