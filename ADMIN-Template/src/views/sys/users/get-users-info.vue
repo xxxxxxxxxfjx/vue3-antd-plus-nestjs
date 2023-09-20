@@ -90,11 +90,11 @@ const onSubmit = async () => {
     if (!isAdd.value) {
       delete state.form.password
     }
-    let FUC = isAdd.value ? usersCreate : usersUpdate
-    FUC(toRaw(state.form)).then(res => {
-      ZyNotification.success('操作成功')
-      emit('close', true)
-    })
+    // let FUC = isAdd.value ? usersCreate : usersUpdate
+    // FUC(toRaw(state.form)).then(res => {
+    //   ZyNotification.success('操作成功')
+    //   emit('close', true)
+    // })
   } catch (errorInfo) {
     console.log('Failed:', errorInfo);
   }

@@ -58,12 +58,12 @@ state.form = props.updateData || {}
 const onSubmit = async () => {
   try {
     const values = await formRef.value.validateFields();
-    usersReset(toRaw(state.form)).then(res => {
+    /*usersReset(toRaw(state.form)).then(res => {
       ZyNotification.success('密码重置成功')
       emit('close', true)
     }).catch(err => {
       ZyNotification.error(err || '操作失败')
-    })
+    })*/
   } catch (errorInfo) {
     console.log('Failed:', errorInfo);
   }

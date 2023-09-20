@@ -69,12 +69,12 @@
         try {
             const values = await formRef.value.validateFields();
             values._id = state.form._id
-            rolesUpdate(values).then(res => {
-                if (res){
-                    ZyNotification.success('修改角色成功！')
-                    emit('close', true)
-                }
-            })
+            // rolesUpdate(values).then(res => {
+            //     if (res){
+            //         ZyNotification.success('修改角色成功！')
+            //         emit('close', true)
+            //     }
+            // })
         } catch (errorInfo) {
             console.log('Failed:', errorInfo);
         }
