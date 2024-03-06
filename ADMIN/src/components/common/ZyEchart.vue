@@ -44,7 +44,6 @@ onMounted(() => {
 });
 
 watchEffect(() => {
-  console.log(props.chartOptions)
   if (chartInstance && props.chartOptions) {
     chartInstance.setOption(props.chartOptions);
   }

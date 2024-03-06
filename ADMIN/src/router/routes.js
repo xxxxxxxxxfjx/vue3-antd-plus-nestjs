@@ -343,6 +343,15 @@ const frameIn = [
                         ]
 
                     },
+                    {
+                        path: '/dir-demo-info',
+                        name: 'dir-demo-info',
+                        meta: {
+                            cache: true,
+                            title: '其他组件',
+                        },
+                        component: () => import('@/views/demo/dir-demo-info.vue'),
+                    },
                 ]
             },
 

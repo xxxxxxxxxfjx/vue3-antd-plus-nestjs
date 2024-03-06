@@ -52,8 +52,9 @@
           <a-card :bordered="true">
             <p>✨vue3-antd-plus在线文档：<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank">https://z568_568.gitee.io/vue3-antd-plus</a>
             </p>
-            <p>✨QQ交流群: 529675917</p>
+            <p>✨QQ交流群(可以反馈项目问题和建议): 529675917</p>
             <p>✨作者邮箱：yizhou568@gmail.com</p>
+            <p style="font-weight: bold;color: red">✨有项目合作或者需要有偿服务的同学可以联系我哦!!! QQ: 1840354092</p>
           </a-card>
         </a-col>
       </a-row>

@@ -52,9 +52,9 @@ watchEffect(() => {
 
 
 function getRoles() {
-  // rolesList(state.query).then(res => {
-  //   state.dataList = res.data.result || []
-  // })
+  rolesList(state.query).then(res => {
+    state.dataList = res.data.result || []
+  })
 }
 
 

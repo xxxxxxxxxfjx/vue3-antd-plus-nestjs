@@ -76,19 +76,16 @@ const handleResize = (e) => {
     executedOnce = false; // 如果窗口宽度大于等于900且已执行过一次，则重置为未执行
     menuStore.toggleSidebar();
   }
-
 };
 
 
 hotkeys(searchStore.hotkey.open, event => {
   event.preventDefault()
-  console.log("ss")
   searchStore.showSearchPanel(true)
 })
 
 hotkeys(searchStore.hotkey.close, event => {
   event.preventDefault()
-  console.log("ccc")
   searchStore.showSearchPanel(false)
 })
 
@@ -108,7 +105,7 @@ watchEffect(() => {
   themeStyle.value.backgroundColor = adjustColorOpacity(theme.value.primaryColor, 10)
 })
 
-
+// 允许页面缓存的组件
 const getIncludedComponents = (route) => {
   const includedComponents = [];
   if (route.meta.cache) {
@@ -117,6 +114,7 @@ const getIncludedComponents = (route) => {
   return includedComponents;
 }
 
+// 不许缓存的页面
 const getExcludedComponents = (route) => {
   const excludedComponents = [];
   if (!route.meta.cache) {

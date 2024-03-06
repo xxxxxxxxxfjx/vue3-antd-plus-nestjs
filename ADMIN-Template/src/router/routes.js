@@ -341,7 +341,15 @@ const frameIn = [
                                 component: () => import('@/components/VMdEditor/index.vue'),
                             }
                         ]
-
+                    },
+                    {
+                        path: '/dir-demo-info',
+                        name: 'dir-demo-info',
+                        meta: {
+                            cache: true,
+                            title: '其他组件',
+                        },
+                        component: () => import('@/views/demo/dir-demo-info.vue'),
                     },
                 ]
             },
