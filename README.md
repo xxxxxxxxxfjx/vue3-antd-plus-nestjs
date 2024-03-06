@@ -7,8 +7,8 @@
 
 <h3 align="center">" 🔥 Vue3-Antd-Plus "</h3>
   <p align="center">
-    基于 Vue3 + JavaScript 现代化的管理系统【完整版】
-<br /> 
+    基于 Vue3 + JavaScript【MongoDB数据库版】 现代化的管理系统【完整版】
+<br />
     <a href="https://z568_568.gitee.io/zy-admin-template" target="_blank"><strong>⛳ Demo在线预览 »</strong></a>
 <br />
 <a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
@@ -45,10 +45,10 @@
 |-|-|
 |ADMIN|管理端|
 |CLIENT|前台端|
-|SERVER|服务端|
+|SERVER|服务端 （MongoDB数据库版）|
 |ADMIN-Template|管理端(纯前端模板)|
 |⛳ Demo在线预览|[http://admin.zhouyi.run](http://admin.zhouyi.run)|
-
+|Vue3-Antd-Plus【[Mysql数据库版](https://gitee.com/Z568_568/Vue3-Admin-JS-Mysql.git)】|Mysql数据库版|
 
 
 <img  src="doc/Vue3-Antd-Plus.png">
