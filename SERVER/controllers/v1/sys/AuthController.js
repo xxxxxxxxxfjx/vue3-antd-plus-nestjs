@@ -144,9 +144,9 @@ exports.register = [
                 const addInfo = await UsersModel.create(newUser)
                 if (addInfo) {
                     //发送邮件
-                    addInfo.email && await mailer.send(req.body.email, `恭喜您已注册成功,感谢您的使用ZY·ADMIN！`)
+                   // addInfo.email && await mailer.send(req.body.email, `恭喜您已注册成功,感谢您的使用ZY·ADMIN！`)
                     log.info(`+++ 新用户: ${req.body.username} 注册成功`)
-                    return apiResponse.successResponse(res, "注册成功");
+                    return apiResponse.successResponse(res, "恭喜您已注册成功,感谢您的使用ZY·ADMIN！");
                 }
             }
         } catch (err) {
