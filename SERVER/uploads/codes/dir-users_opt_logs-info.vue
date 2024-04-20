@@ -286,7 +286,7 @@
     const goEdit = (row) => {
         state.show.edit = true
         row && row._id ? state.editTitle = '修改操作日志' : state.editTitle = '添加操作日志'
-        state.updateData = row
+        state.updateData = {...row}
     }
 
     const goDelete = (row) => {

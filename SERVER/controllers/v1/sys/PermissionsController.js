@@ -14,7 +14,7 @@ function hasSingleColon(str, num = 1) {
 
 
 /**
- * 获取权限管理列表
+ * 获取权限管理列表.
  * @param {Object} req - 请求对象，包含查询参数
  *  -query: {
  *   params: {}, 查询参数 (object)

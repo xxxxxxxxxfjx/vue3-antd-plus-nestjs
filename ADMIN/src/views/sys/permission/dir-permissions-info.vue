@@ -226,7 +226,7 @@
     const goEdit = (row) => {
         state.show.edit = true
         row && row._id ? state.editTitle = '修改权限' : state.editTitle = '添加权限'
-        state.updateData = row
+        state.updateData = {...row}
     }
     // 验证权限标识默认有且仅有一个冒号 :
     function hasSingleColon(str,num=1) {

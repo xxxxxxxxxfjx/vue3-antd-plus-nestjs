@@ -202,7 +202,7 @@
     const goEdit = (row) => {
         state.show.edit = true
         row && row._id ? state.editTitle = '修改<%= comment %>' : state.editTitle = '添加<%= comment %>'
-        state.updateData = row
+        state.updateData = {...row}
     }
 
     const goDelete = (row) => {

@@ -355,7 +355,7 @@ const goView = (row) => {
 const goEdit = (row) => {
   state.show.edit = true
   row && row._id ? state.editTitle = '修改文章' : state.editTitle = '添加文章'
-  state.updateData = row
+  state.updateData = {...row}
 }
 
 const goDelete = (row) => {

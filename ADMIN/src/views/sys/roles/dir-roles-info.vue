@@ -208,7 +208,7 @@ const goAdd = () => {
 
 const goEdit = (row) => {
   state.show.edit = true
-  state.updateData = row
+  state.updateData = {...row}
 }
 
 const goDelete = (row) => {
