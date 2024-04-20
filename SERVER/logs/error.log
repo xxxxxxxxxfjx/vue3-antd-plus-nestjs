@@ -210,3 +210,31 @@
         【URL】: POST /v1/sys/users_opt_logs/list
         【参数】: {}
         【错误】: UnauthorizedError: No authorization token was found
+[2023-09-11T09:21:30.830] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/permissions/list
+        【参数】: {"params":{},"pagination":{"current":1,"pageSize":10,"total":0,"hideOnSinglePage":true},"sort":{"columnKey":"sortOrder","order":"ascend"}}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:03:25.175] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/permissions/tree
+        【参数】: {}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:03:35.266] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/permissions/tree
+        【参数】: {}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:03:44.162] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/roles/list
+        【参数】: {"params":{},"pagination":{"current":1,"pageSize":100},"sort":{"columnKey":"createdAt","order":"ascend"}}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:06:25.521] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/roles/list
+        【参数】: {"params":{},"pagination":{"current":1,"pageSize":100},"sort":{"columnKey":"createdAt","order":"ascend"}}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:06:29.242] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/roles/list
+        【参数】: {"params":{},"pagination":{"current":1,"pageSize":100},"sort":{"columnKey":"createdAt","order":"ascend"}}
+        【错误】: UnauthorizedError: jwt expired
+[2023-09-20T12:06:43.042] [ERROR] error - 错误信息
+        【URL】: POST /v1/sys/roles/list
+        【参数】: {"params":{},"pagination":{"current":1,"pageSize":100},"sort":{"columnKey":"createdAt","order":"ascend"}}
+        【错误】: UnauthorizedError: jwt expired

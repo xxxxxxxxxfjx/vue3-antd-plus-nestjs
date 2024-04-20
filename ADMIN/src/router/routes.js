@@ -44,6 +44,136 @@ const frameIn = [
                 component: () => import('@/views/home/index.vue'),
             },
             {
+                path: '/dataCenter',
+                name: 'dataCenter',
+                meta: {
+                    cache: true,
+                    icon: 'shujuzhongxin',
+                    title: '数据大屏',
+                    requiresAuth: true,
+                },
+                component: () => import('@/views/demo/dataCenter/index.vue'),
+            },
+            {
+                path: '/sys',
+                name: 'sys',
+                meta: {
+                    title: '系统管理',
+                    icon: 'shezhi',
+                    requiresAuth: true,
+
+                },
+                children: [
+                    {
+                        path: '/dir-users-info',
+                        name: 'dir-users-info',
+                        meta: {
+                            title: '用户管理',
+                            icon: 'yonghuguanli',
+                            requiresAuth: true,
+                            perms: [
+                                'sys:users:list',
+                                'sys:users:create',
+                                'sys:users:update',
+                                'sys:users:delete',
+                                'sys:users:reset',
+                            ],
+                        },
+                        component: () => import('@/views/sys/users/dir-users-info.vue'),
+                    },
+                    {
+                        path: '/dir-roles-info',
+                        name: 'dir-roles-info',
+                        meta: {
+                            title: '角色管理',
+                            icon: 'caidanguanli',
+                            requiresAuth: true,
+                            perms: [ //页面的操作的权限
+                                'sys:roles:list',
+                                'sys:roles:create',
+                                'sys:roles:update',
+                                'sys:roles:delete',
+                            ],
+                        },
+                        component: () => import('@/views/sys/roles/dir-roles-info.vue'),
+                    },
+                    {
+                        path: '/dir-permissions-info',
+                        name: 'dir-permissions-info',
+                        meta: {
+                            title: '权限管理',
+                            icon: 'yonghuguanli',
+                            requiresAuth: true,
+                            perms: [
+                                'sys:permissions:list',
+                                'sys:permissions:create',
+                                'sys:permissions:update',
+                                'sys:permissions:delete',
+                                'sys:permissions:reset',
+                            ],
+                        },
+                        component: () => import('@/views/sys/permission/dir-permissions-info.vue'),
+                    },
+                    {
+                        path: '/dir-users_opt_logs-info',
+                        name: 'dir-users_opt_logs-info',
+                        meta: {
+                            title: '操作日志',
+                            icon: 'yonghuguanli',
+                            requiresAuth: true,
+                            perms: [
+                                'sys:users_opt_logs:list',
+                                'sys:users_opt_logs:create',
+                                'sys:users_opt_logs:update',
+                                'sys:users_opt_logs:delete',
+                                'sys:users_opt_logs:deleteAll',
+                                'sys:users_opt_logs:export',
+                            ],
+                        },
+                        component: () => import('@/views/sys/optLogs/dir-users_opt_logs-info.vue'),
+                    }
+                ]
+            },
+            {
+                path: '/dev',
+                name: 'dev',
+                meta: {
+                    cache: true,
+                    title: '开发工具',
+                    requiresAuth: true,
+                },
+                children: [
+                    {
+                        path: '/dir-codes-info',
+                        name: 'dir-codes-info',
+                        meta: {
+                            cache: true,
+                            title: '代码生成',
+                            requiresAuth: true,
+                            perms: [
+                                'dev:codes:list',
+                                'dev:codes:delete',
+                                'dev:codes:deleteAll',
+                                'dev:codes:singleCurdFrontAndBack',
+                            ],
+                        },
+                        component: () => import('@/views/dev/code/dir-codes-info.vue'),
+                    },
+                    {
+                        path: '/dir-icon-info',
+                        name: 'dir-icon-info',
+                        meta: {
+                            title: '图标列表',
+                            requiresAuth: true,
+                            icon: 'shezhi',
+                            perms: ['dev:icon'],
+                        },
+                        component: () => import('@/views/dev/icon/dir-icon-info.vue'),
+                    },
+                ]
+
+            },
+            {
                 path: '/pages',
                 name: 'pages',
                 meta: {
@@ -54,26 +184,6 @@ const frameIn = [
                 },
                 children: [
                     {
-                        path: '/dir-max-info',
-                        name: 'dir-max-info',
-                        meta: {
-                            cache: true,
-                            title: '数据中心',
-                            requiresAuth: true,
-                        },
-                        component: () => import('@/views/demo/pages/dir-max-info.vue'),
-                    },
-                    {
-                        path: '/dir-test-info',
-                        name: 'dir-test-info',
-                        meta: {
-                            cache: true,
-                            title: '测试页面',
-                            requiresAuth: true,
-                        },
-                        component: () => import('@/views/demo/pages/dir-test-info.vue'),
-                    },
-                    {
                         path: '/dir-page-info',
                         name: 'dir-page-info',
                         meta: {
@@ -83,9 +193,30 @@ const frameIn = [
                             perms: ['pages:all'],
                         },
                         component: () => import('@/views/demo/pages/dir-page-info.vue'),
-                    }
+                    },
+                    {
+                        path: '/frame',
+                        name: 'frame',
+                        meta: {
+                            frameSrc: 'http://blog.zhouyi.run/#/',
+                            title: '博客主页',
+                            requiresAuth: true,
+                            icon: 'wailian_icon',
+                        },
+                        component: () => import('@/views/sys/frame/dir-frame-info.vue'),
+                    },
+                    {
+                        path: '/homepage',
+                        name: 'homepage',
+                        meta: {
+                            frameSrc: 'http://www.zhouyi.run/#/',
+                            title: '个人主页',
+                            requiresAuth: true,
+                            icon: 'wailian_icon',
+                        },
+                        component: () => import('@/views/sys/frame/dir-frame-info.vue'),
+                    },
                 ]
-
             },
             {
                 path: '/components',
@@ -212,150 +343,18 @@ const frameIn = [
                         ]
 
                     },
-                ]
-            },
-
-            {
-                path: '/sys',
-                name: 'sys',
-                meta: {
-                    title: '系统管理',
-                    icon: 'shezhi',
-                    requiresAuth: true,
-
-                },
-                children: [
                     {
-                        path: '/dir-users-info',
-                        name: 'dir-users-info',
-                        meta: {
-                            title: '用户管理',
-                            icon: 'yonghuguanli',
-                            requiresAuth: true,
-                            perms: [
-                                'sys:users:list',
-                                'sys:users:create',
-                                'sys:users:update',
-                                'sys:users:delete',
-                                'sys:users:reset',
-                            ],
-                        },
-                        component: () => import('@/views/sys/users/dir-users-info.vue'),
-                    },
-                    {
-                        path: '/dir-roles-info',
-                        name: 'dir-roles-info',
-                        meta: {
-                            title: '角色管理',
-                            icon: 'caidanguanli',
-                            requiresAuth: true,
-                            perms: [ //页面的操作的权限
-                                'sys:roles:list',
-                                'sys:roles:create',
-                                'sys:roles:update',
-                                'sys:roles:delete',
-                            ],
-                        },
-                        component: () => import('@/views/sys/roles/dir-roles-info.vue'),
-                    },
-                    {
-                        path: '/dir-permissions-info',
-                        name: 'dir-permissions-info',
-                        meta: {
-                            title: '权限管理',
-                            icon: 'yonghuguanli',
-                            requiresAuth: true,
-                            perms: [
-                                'sys:permissions:list',
-                                'sys:permissions:create',
-                                'sys:permissions:update',
-                                'sys:permissions:delete',
-                                'sys:permissions:reset',
-                            ],
-                        },
-                        component: () => import('@/views/sys/permission/dir-permissions-info.vue'),
-                    },
-                    {
-                        path: '/dir-users_opt_logs-info',
-                        name: 'dir-users_opt_logs-info',
-                        meta: {
-                            title: '操作日志',
-                            icon: 'yonghuguanli',
-                            requiresAuth: true,
-                            perms: [
-                                'sys:users_opt_logs:list',
-                                'sys:users_opt_logs:create',
-                                'sys:users_opt_logs:update',
-                                'sys:users_opt_logs:delete',
-                                'sys:users_opt_logs:deleteAll',
-                                'sys:users_opt_logs:export',
-                            ],
-                        },
-                        component: () => import('@/views/sys/optLogs/dir-users_opt_logs-info.vue'),
-                    }
-                ]
-            },
-            {
-                path: '/dev',
-                name: 'dev',
-                meta: {
-                    cache: true,
-                    title: '开发工具',
-                    requiresAuth: true,
-                },
-                children: [
-                    {
-                        path: '/dir-codes-info',
-                        name: 'dir-codes-info',
+                        path: '/dir-demo-info',
+                        name: 'dir-demo-info',
                         meta: {
                             cache: true,
-                            title: '代码生成',
-                            requiresAuth: true,
-                            perms: [
-                                'dev:codes:list',
-                                'dev:codes:delete',
-                                'dev:codes:deleteAll',
-                                'dev:codes:singleCurdFrontAndBack',
-                            ],
+                            title: '其他组件',
                         },
-                        component: () => import('@/views/dev/code/dir-codes-info.vue'),
-                    },
-                    {
-                        path: '/dir-icon-info',
-                        name: 'dir-icon-info',
-                        meta: {
-                            title: '图标列表',
-                            requiresAuth: true,
-                            icon: 'shezhi',
-                            perms: ['dev:icon'],
-                        },
-                        component: () => import('@/views/dev/icon/dir-icon-info.vue'),
+                        component: () => import('@/views/demo/dir-demo-info.vue'),
                     },
                 ]
+            },
 
-            },
-            {
-                path: 'frame',
-                name: 'frame',
-                meta: {
-                    frameSrc: 'http://blog.zhouyi.run/#/',
-                    title: '博客主页',
-                    requiresAuth: true,
-                    icon: 'wailian_icon',
-                },
-                component: () => import('@/views/sys/frame/dir-frame-info.vue'),
-            },
-            {
-                path: 'homepage',
-                name: 'homepage',
-                meta: {
-                    frameSrc: 'http://www.zhouyi.run/#/',
-                    title: '个人主页',
-                    requiresAuth: true,
-                    icon: 'wailian_icon',
-                },
-                component: () => import('@/views/sys/frame/dir-frame-info.vue'),
-            },
             {
                 path: 'https://gitee.com/Z568_568',
                 meta: {
@@ -363,6 +362,24 @@ const frameIn = [
                     title: '源码',
                     requiresAuth: true,
                     icon: 'github'
+                },
+            },
+            {
+                path: 'https://z568_568.gitee.io/vue3-antd-plus',
+                meta: {
+                    link: true,
+                    title: '文档',
+                    requiresAuth: true,
+                    icon: 'wailian_icon'
+                },
+            },
+            {
+                path: 'http://admin.zhouyi.run',
+                meta: {
+                    link: true,
+                    title: '完整版',
+                    requiresAuth: true,
+                    icon: 'wailian_icon'
                 },
             },
 

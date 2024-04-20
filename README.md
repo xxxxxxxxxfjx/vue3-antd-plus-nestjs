@@ -1,4 +1,4 @@
-# Vue3-Antd-Plus (文档更新中)
+# Vue3-Antd-Plus 
 
 <p align="center">
   <a href="https://gitee.com/Z568_568/mango-blog-system.git">
@@ -7,16 +7,16 @@
 
 <h3 align="center">" 🔥 Vue3-Antd-Plus "</h3>
   <p align="center">
-    基于 Vue3 + js 现代化的管理系统【完整版】
+    基于 Vue3 + JavaScript【MongoDB数据库版】 现代化的管理系统【完整版】
+<br />
+    <a href="https://z568_568.gitee.io/zy-admin-template" target="_blank"><strong>⛳ Demo在线预览 »</strong></a>
+<br />
+<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
-    <a href="https://gitee.com/Z568_568/vue3-antd-plus.git" target="_blank"><strong>探索本项目的源码 »</strong></a>
-    <br />
-
-[comment]: <> (<a href='https://gitee.com/Z568_568/ZY-Admin/stargazers'><img src='https://gitee.com/Z568_568/ZY-Admin/badge/star.svg?theme=dark' alt='star'></img></a>)
-
-[comment]: <> (<a href='https://gitee.com/Z568_568/ZY-Admin/members'><img src='https://gitee.com/Z568_568/ZY-Admin/badge/fork.svg?theme=dark' alt='fork'></img></a>)
 </p>
 </p>
+
+<p align="center">
 
 ![Vue3](https://img.shields.io/badge/-Vue-34495e?logo=vue.js)
 ![HTML5](https://img.shields.io/badge/-HTML5-red?logo=html5&logoColor=white)
@@ -27,14 +27,29 @@
 ![MongoDB](https://img.shields.io/badge/-MongoDB-yellow?logo=MongoDB&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
-[Vue3-Antd-Plus](https://gitee.com/Z568_568/vue3-antd-plus.git)是一个现代化的前后端分离管理系统，旨在为开发者提供一套含有基础功能的组件和工具，以加速管理后台应用的开发过程。该项目经过二次封装组件、提供实用的工具、自定义的钩子函数、支持动态菜单和权限校验，甚至实现了按钮级别的权限控制等功能。
+</p>
+
+[Vue3-Antd-Plus](https://gitee.com/Z568_568/vue3-antd-plus.git)是一个现代化的前后端分离后台管理系统，旨在为开发者提供一套含有基础功能的组件和工具，以加速管理后台应用的开发过程。该项目经过二次封装组件、提供实用的工具、自定义的钩子函数、支持动态菜单和权限校验，甚至实现了按钮级别的权限控制等功能。
 
 此项目采用了前端领域最新的技术栈，包括但不限于 **Vue 3、Vite、Pinia、Node.js、Antd** 等。因此，它不仅可以作为一个出色的项目启动模板，帮助你快速构建企业级中后台产品原型，还可以作为学习 Vue 3、Vite、JavaScript、Pinia、Node.js、MongoDB 等主流技术的示例项目。
 
 这个项目致力于跟进前端技术的最新进展，将最新的技术应用于项目中。 因此，它不仅可以用于实际应用的开发，还可以作为学习和实验的理想资源，帮助你不断掌握前端领域的最新知识和技术。
 
 无论你是一个开发者寻找一个可靠的管理后台模板，还是一个学习者想要深入了解现代前端技术，Vue3-Antd-Plus 都是一个非常有价值的项目。
-**因为它弥补了不习惯使用TypeScript开发的同学，使用JavaScript版本就能更快上手熟悉**。
+**因为它弥补了不习惯使用TypeScript开发的同学，使用JavaScript版本就能更快上手熟悉**。 
+
+>  **🎯 如果项目对你有帮助，可以帮帮忙点个小星星，谢谢了~** 
+
+
+|名称|类型|
+|-|-|
+|ADMIN|管理端|
+|CLIENT|前台端|
+|SERVER|服务端 （MongoDB数据库版）|
+|ADMIN-Template|管理端(纯前端模板)|
+|⛳ Demo在线预览|[http://admin.zhouyi.run](http://admin.zhouyi.run)|
+|Vue3-Antd-Plus【[Mysql数据库版](https://gitee.com/Z568_568/Vue3-Admin-JS-Mysql.git)】|Mysql数据库版|
+
 
 <img  src="doc/Vue3-Antd-Plus.png">
 
@@ -42,7 +57,7 @@
 ---
 
 
-## 截图(管理后台+web前台)
+## 截图(管理后台+web前台) QQ群：529675917
 <img  src="doc/img_9.png" width = "300" height = "150">
 <img  src="doc/img.png" width = "300" height = "150">
 <img src="doc/img_1.png" width = "300" height = "150">
@@ -62,7 +77,7 @@
 *   [x] 前台端- 整体框架已搭建好
 *   [x] 前台端- 接口已经接入
 *   [x] 前台端- axios全局统一错误处理
-*   [x] 管理端- 大屏数据可视化
+*   [x] 管理端- 大屏数据可视化🎈🎈
 *   [x] 管理端- 集成各类富文本编辑器
 *   [x] 管理端- 自定义主题、菜单权限、按钮权限
 *   [x] 管理端- 登录、注册、菜单、tabs顶栏菜单、全局搜索菜单
