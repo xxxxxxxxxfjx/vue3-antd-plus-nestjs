@@ -9,9 +9,9 @@
   <p align="center">
     基于 Vue3 + JavaScript【MongoDB数据库版】 现代化的管理系统【完整版】
 <br />
-    <a href="https://z568_568.gitee.io/zy-admin-template" target="_blank"><strong>⛳ Demo在线预览 »</strong></a>
+    <a href="http://admin.zhouyi.run" target="_blank"><strong>⛳ Demo在线预览 »</strong></a>
 <br />
-<a href="https://z568_568.gitee.io/vue3-antd-plus" target="_blank"><strong>教程文档 (更新中)»</strong></a>
+<a href="https://zhyi-source.github.io" target="_blank"><strong>教程文档 (更新中)»</strong></a>
     <br />
 </p>
 </p>
