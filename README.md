@@ -11,7 +11,7 @@
 <br />
     <a href="http://admin.zhouyi.run" target="_blank"><strong>⛳ Demo在线预览 »</strong></a>
 <br />
-<a href="https://zhyi-source.github.io" target="_blank"><strong>教程文档 (更新中)»</strong></a>
+<a href="https://zhyi-source.github.io" target="_blank"><strong>教程文档 (更新中)已部署github»</strong></a>
     <br />
 </p>
 </p>
