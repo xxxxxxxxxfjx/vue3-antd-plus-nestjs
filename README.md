@@ -109,9 +109,11 @@
 
 #### 我的其他开源项目
 
+> [👆Vue3 + JavaScript +ElementPlus管理端简洁版（纯前端2024）](https://gitee.com/Z568_568/ZHOUYI-ADMIN.git)
+
 > [Vue3-Antd-Admin-template管理端简洁版（纯前端）](https://gitee.com/Z568_568/ZY-Admin-template.git)
 
-> [👆vue3个人主页简历个人博客前后端分离系统](https://gitee.com/Z568_568/ZHOUYI-Homepage.git)
+> [vue3个人主页简历个人博客前后端分离系统](https://gitee.com/Z568_568/ZHOUYI-Homepage.git)
 
 >[😜vue2博客全栈系统 vue2 + node.js](https://gitee.com/Z568_568/all-blog-sys.git)
  
