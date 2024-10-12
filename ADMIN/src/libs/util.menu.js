@@ -24,27 +24,26 @@ function hasPermission(perms, route) {
  * @returns {Array} - 筛选后的路由配置
  */
 function filterAsyncRouter(routes, perms) {
-    const res = []
+    return routes.reduce((res, route) => {
+        const tmp = { ...route }; // 创建临时变量 tmp，避免修改原始对象
 
-    routes.forEach(route => {
-        // 创建临时变量 tmp  可以在后续的操作中不会修改原始的路由对象。
-        const tmp = {...route}
+        // 判断路由是否有子路由并且不是隐藏的
         if (!tmp.hidden && tmp.children) {
-            // 先对子路由进行深度筛选，确保子路由也符合权限要求
-            tmp.children = filterAsyncRouter(tmp.children, perms)
-            if (tmp.children && tmp.children.length > 0) {
-                res.push(tmp)
-            }
-        } else {
-            // 对于没有子路由的路由对象，直接进行权限判断
-            if (!tmp.hidden && hasPermission(perms, tmp)) {
-                res.push(tmp)
-            }
-        }
-    })
+            tmp.children = filterAsyncRouter(tmp.children, perms);
 
-    return res
+            // 如果子路由不为空，才加入结果数组
+            if (tmp.children.length > 0) {
+                res.push(tmp);
+            }
+        } else if (!tmp.hidden && (!perms || hasPermission(perms, tmp))) {
+            // 没有子路由的情况，检查权限并且没有隐藏
+            res.push(tmp);
+        }
+
+        return res;
+    }, []);
 }
+
 
 
 export const menuList = function () {
@@ -58,8 +57,10 @@ export const menuList = function () {
         return useRouter().replace('/login')
     }
     let accessedRouters
+
     if (permissionList.includes('*')) {
-        accessedRouters = asyncRoutes
+        // 如果是超级管理员则无需权限验证
+        accessedRouters = filterAsyncRouter(asyncRoutes)
     } else {
         accessedRouters = filterAsyncRouter(asyncRoutes, permissionList);
     }
