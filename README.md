@@ -40,6 +40,9 @@
 
 >  **🎯 如果项目对你有帮助，可以帮帮忙点个小星星，谢谢了~** 
 
+>  - QQ群：529675917（已满）
+>  - QQ群：703211367
+
 
 |名称|类型|
 |-|-|
@@ -57,7 +60,7 @@
 ---
 
 
-## 截图(管理后台+web前台) QQ群：529675917
+## 截图(管理后台+web前台)
 <img  src="doc/img_9.png" width = "300" height = "150">
 <img  src="doc/img.png" width = "300" height = "150">
 <img src="doc/img_1.png" width = "300" height = "150">
