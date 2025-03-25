@@ -44,7 +44,7 @@
 >  - QQ群：703211367
 >  - 我的小程序
 
-<img  src="doc/wx-code.png" width = "400" height = "120">
+<img  src="doc/wx-code.png" width = "400" height = "150">
 
 |名称|类型|
 |-|-|
