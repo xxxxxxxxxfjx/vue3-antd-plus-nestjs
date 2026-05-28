@@ -12,8 +12,9 @@ export const ApiPaginatedResponse = <TModel extends Type<any>>(
         allOf: [
           {
             properties: {
-              code: { type: 'number', example: 200 },
+              status: { type: 'number', example: 1 },
               message: { type: 'string', example: '操作成功' },
+              time: { type: 'number', example: Date.now() },
               data: {
                 properties: {
                   items: {

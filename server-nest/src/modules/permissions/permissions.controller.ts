@@ -29,20 +29,20 @@ export class PermissionsController {
 
   @Post('delete')
   @ApiOperation({ summary: '删除权限' })
-  async permissionsDelete(@Body('id') id: string) {
+  async permissionsDelete(@Body('_id') id: string) {
     return this.permissionsService.remove(id);
   }
 
   @Post('update')
   @ApiOperation({ summary: '更新权限信息' })
-  async permissionsUpdate(@Body() body: UpdatePermissionDto & { id: string }) {
-    const { id, ...updatePermissionDto } = body;
-    return this.permissionsService.update(id, updatePermissionDto);
+  async permissionsUpdate(@Body() body: UpdatePermissionDto & { _id: string }) {
+    const { _id, ...updatePermissionDto } = body;
+    return this.permissionsService.update(_id, updatePermissionDto);
   }
 
   @Post('stop')
   @ApiOperation({ summary: '更新权限状态' })
-  async permissionsStop(@Body() body: { id: string; status: boolean }) {
-    return this.permissionsService.update(body.id, { status: body.status });
+  async permissionsStop(@Body() body: { _id: string; status: boolean }) {
+    return this.permissionsService.update(body._id, { status: body.status });
   }
 }

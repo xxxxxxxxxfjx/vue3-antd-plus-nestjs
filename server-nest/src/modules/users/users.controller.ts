@@ -23,26 +23,26 @@ export class UsersController {
 
   @Post('delete')
   @ApiOperation({ summary: '删除用户' })
-  async usersDelete(@Body('id') id: string) {
+  async usersDelete(@Body('_id') id: string) {
     return this.usersService.remove(id);
   }
 
   @Post('update')
   @ApiOperation({ summary: '更新用户信息' })
-  async usersUpdate(@Body() body: UpdateUserDto & { id: string }) {
-    const { id, ...updateUserDto } = body;
-    return this.usersService.update(id, updateUserDto);
+  async usersUpdate(@Body() body: UpdateUserDto & { _id: string }) {
+    const { _id, ...updateUserDto } = body;
+    return this.usersService.update(_id, updateUserDto);
   }
 
   @Post('reset')
   @ApiOperation({ summary: '重置用户密码' })
-  async usersReset(@Body() body: { id: string; password: string }) {
-    return this.usersService.update(body.id, { password: body.password });
+  async usersReset(@Body() body: { _id: string; newPassword: string }) {
+    return this.usersService.update(body._id, { password: body.newPassword });
   }
 
   @Post('findOne')
   @ApiOperation({ summary: '获取用户信息' })
-  async usersFindOne(@Body('id') id: string) {
+  async usersFindOne(@Body('_id') id: string) {
     return this.usersService.findOne(id);
   }
 }

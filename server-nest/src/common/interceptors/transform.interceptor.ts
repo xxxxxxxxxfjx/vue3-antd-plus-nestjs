@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Response<T> {
-  code: number;
+  status: number;
   message: string;
   data: T;
+  time: number;
 }
 
 @Injectable()
@@ -24,9 +25,10 @@ export class TransformInterceptor<T> implements NestInterceptor<
   ): Observable<Response<T>> {
     return next.handle().pipe(
       map((data) => ({
-        code: 200,
+        status: 1,
         message: '操作成功',
         data,
+        time: Date.now(),
       })),
     );
   }

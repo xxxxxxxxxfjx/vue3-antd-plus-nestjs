@@ -11,13 +11,10 @@ export interface RequestUser {
 }
 
 export interface LoginResponse {
-  access_token: string;
-  user: {
-    id: string;
-    username: string;
-    nickname: string;
-    email?: string;
-    avatar?: string;
-    roleId?: any;
-  };
+  _id: string;
+  username: string;
+  nickname: string;
+  roleId?: any;
+  status: boolean;
+  token: string;
 }

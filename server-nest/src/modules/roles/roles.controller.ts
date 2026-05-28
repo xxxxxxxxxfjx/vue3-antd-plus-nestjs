@@ -23,20 +23,20 @@ export class RolesController {
 
   @Post('delete')
   @ApiOperation({ summary: '删除角色' })
-  async rolesDelete(@Body('id') id: string) {
+  async rolesDelete(@Body('_id') id: string) {
     return this.rolesService.remove(id);
   }
 
   @Post('update')
   @ApiOperation({ summary: '更新角色信息' })
-  async rolesUpdate(@Body() body: UpdateRoleDto & { id: string }) {
-    const { id, ...updateRoleDto } = body;
-    return this.rolesService.update(id, updateRoleDto);
+  async rolesUpdate(@Body() body: UpdateRoleDto & { _id: string }) {
+    const { _id, ...updateRoleDto } = body;
+    return this.rolesService.update(_id, updateRoleDto);
   }
 
   @Post('findOne')
   @ApiOperation({ summary: '查找指定的角色信息' })
-  async rolesFindOne(@Body('id') id: string) {
+  async rolesFindOne(@Body('_id') id: string) {
     return this.rolesService.findOne(id);
   }
 }

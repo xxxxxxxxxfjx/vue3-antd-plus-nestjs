@@ -15,6 +15,7 @@ export class AuthService {
   ) {}
 
   async login(loginDto: LoginDto): Promise<LoginResponse> {
+    console.log('loginDto', loginDto);
     const user = await this.usersService.findByUsername(loginDto.username);
 
     if (!user) {
@@ -34,23 +35,27 @@ export class AuthService {
       throw new UnauthorizedException('用户已被禁用');
     }
 
+    const userId = (user as any)._id.toString();
+    
+    const userData = {
+      _id: userId,
+      username: user.username,
+      nickname: user.nickname,
+      roleId: user.roleId,
+      status: user.status,
+    };
+
     const payload: JwtPayload = {
       username: user.username,
-      sub: (user as any)._id.toString(),
+      sub: userId,
     };
-    const token = this.jwtService.sign(payload);
-
+    
+    const token = 'Bearer ' + this.jwtService.sign(payload);
+    
     return {
-      access_token: token,
-      user: {
-        id: (user as any)._id.toString(),
-        username: user.username,
-        nickname: user.nickname,
-        email: user.email,
-        avatar: user.avatar,
-        roleId: user.roleId,
-      },
-    };
+      ...userData,
+      token,
+    } as any;
   }
 
   async validateUser(userId: string) {

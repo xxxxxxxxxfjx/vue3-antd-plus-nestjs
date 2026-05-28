@@ -11,6 +11,11 @@ export const RESPONSE_MESSAGES = {
   INTERNAL_ERROR: '服务器内部错误',
 } as const;
 
+export const RESPONSE_STATUS = {
+  SUCCESS: 1,
+  FAILED: 0,
+} as const;
+
 export const HTTP_STATUS_CODES = {
   OK: 200,
   CREATED: 201,
