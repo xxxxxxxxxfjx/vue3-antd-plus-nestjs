@@ -1,0 +1,290 @@
+### NestJS API 测试文件
+### 使用 VSCode REST Client 插件运行
+
+@baseUrl = http://localhost:3090
+@token = your-access-token-here
+
+### ============================================
+### 认证模块 (Auth)
+### ============================================
+
+### 1. 用户登录
+POST {{baseUrl}}/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+### 2. 获取当前用户信息
+GET {{baseUrl}}/v1/auth/profile
+Authorization: Bearer {{token}}
+
+### ============================================
+### 用户模块 (Users)
+### ============================================
+
+### 3. 创建用户
+POST {{baseUrl}}/v1/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "nickname": "测试用户",
+  "password": "test123456",
+  "email": "test@example.com",
+  "status": true,
+  "remark": "测试账号"
+}
+
+### 4. 获取用户列表
+GET {{baseUrl}}/v1/users
+Authorization: Bearer {{token}}
+
+### 5. 分页查询用户
+GET {{baseUrl}}/v1/users?page=1&limit=10&username=admin
+Authorization: Bearer {{token}}
+
+### 6. 获取用户详情
+GET {{baseUrl}}/v1/users/{{userId}}
+Authorization: Bearer {{token}}
+
+### 7. 更新用户信息
+PATCH {{baseUrl}}/v1/users/{{userId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nickname": "新昵称",
+  "email": "newemail@example.com"
+}
+
+### 8. 删除用户
+DELETE {{baseUrl}}/v1/users/{{userId}}
+Authorization: Bearer {{token}}
+
+### ============================================
+### 角色模块 (Roles)
+### ============================================
+
+### 9. 创建角色
+POST {{baseUrl}}/v1/roles
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "roleName": "管理员",
+  "roleAuth": "admin",
+  "perms": ["user:create", "user:update", "user:delete", "user:export"],
+  "status": true,
+  "remark": "系统管理员"
+}
+
+### 10. 获取角色列表
+GET {{baseUrl}}/v1/roles
+Authorization: Bearer {{token}}
+
+### 11. 获取角色详情
+GET {{baseUrl}}/v1/roles/{{roleId}}
+Authorization: Bearer {{token}}
+
+### 12. 更新角色
+PATCH {{baseUrl}}/v1/roles/{{roleId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "roleName": "超级管理员",
+  "perms": ["*:*"]
+}
+
+### 13. 删除角色
+DELETE {{baseUrl}}/v1/roles/{{roleId}}
+Authorization: Bearer {{token}}
+
+### ============================================
+### 权限模块 (Permissions)
+### ============================================
+
+### 14. 创建权限
+POST {{baseUrl}}/v1/permissions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "用户管理",
+  "key": "user",
+  "parent_key": null,
+  "auth": false,
+  "sortOrder": 1,
+  "status": true
+}
+
+### 15. 创建子权限
+POST {{baseUrl}}/v1/permissions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "创建用户",
+  "key": "user:create",
+  "parent_key": "user",
+  "auth": true,
+  "sortOrder": 1,
+  "status": true
+}
+
+### 16. 获取权限列表
+GET {{baseUrl}}/v1/permissions
+Authorization: Bearer {{token}}
+
+### 17. 获取权限树
+GET {{baseUrl}}/v1/permissions/tree
+Authorization: Bearer {{token}}
+
+### 18. 获取权限详情
+GET {{baseUrl}}/v1/permissions/{{permissionId}}
+Authorization: Bearer {{token}}
+
+### 19. 更新权限
+PATCH {{baseUrl}}/v1/permissions/{{permissionId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "用户管理模块",
+  "sortOrder": 2
+}
+
+### 20. 删除权限
+DELETE {{baseUrl}}/v1/permissions/{{permissionId}}
+Authorization: Bearer {{token}}
+
+### ============================================
+### 操作日志模块 (UsersOptLogs)
+### ============================================
+
+### 21. 创建操作日志
+POST {{baseUrl}}/v1/users-opt-logs
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "operator": "admin",
+  "operatorId": "{{userId}}",
+  "module": "用户管理",
+  "platform": "desktop",
+  "operatorIP": "192.168.1.1",
+  "address": "中国-北京",
+  "content": "创建了新用户"
+}
+
+### 22. 获取操作日志列表
+GET {{baseUrl}}/v1/users-opt-logs
+Authorization: Bearer {{token}}
+
+### 23. 分页查询日志
+GET {{baseUrl}}/v1/users-opt-logs?page=1&limit=20&operator=admin
+Authorization: Bearer {{token}}
+
+### 24. 获取日志详情
+GET {{baseUrl}}/v1/users-opt-logs/{{logId}}
+Authorization: Bearer {{token}}
+
+### 25. 删除日志
+DELETE {{baseUrl}}/v1/users-opt-logs/{{logId}}
+Authorization: Bearer {{token}}
+
+### ============================================
+### 文件上传模块 (Upload)
+### ============================================
+
+### 26. 上传单个文件
+POST {{baseUrl}}/v1/upload/single
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< ./test-files/test.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### 27. 上传多个文件
+POST {{baseUrl}}/v1/upload/multiple
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="files"; filename="test1.jpg"
+Content-Type: image/jpeg
+
+< ./test-files/test1.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="files"; filename="test2.jpg"
+Content-Type: image/jpeg
+
+< ./test-files/test2.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### ============================================
+### 增强版用户模块 (Users Enhanced)
+### ============================================
+
+### 28. 创建用户（带权限控制）
+POST {{baseUrl}}/v1/users-enhanced
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "nickname": "新用户",
+  "password": "password123",
+  "email": "newuser@example.com",
+  "status": true
+}
+
+### 29. 分页查询用户（增强版）
+GET {{baseUrl}}/v1/users-enhanced?page=1&limit=10&username=admin&status=true
+Authorization: Bearer {{token}}
+
+### 30. 导出用户数据为 Excel
+GET {{baseUrl}}/v1/users-enhanced/export
+Authorization: Bearer {{token}}
+
+### 31. 下载用户导入模板
+GET {{baseUrl}}/v1/users-enhanced/template
+Authorization: Bearer {{token}}
+
+### 32. 更新用户（带权限控制）
+PATCH {{baseUrl}}/v1/users-enhanced/{{userId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nickname": "更新后的昵称"
+}
+
+### 33. 删除用户（仅管理员）
+DELETE {{baseUrl}}/v1/users-enhanced/{{userId}}
+Authorization: Bearer {{token}}
+
+### ============================================
+### 健康检查
+### ============================================
+
+### 34. 检查服务状态
+GET {{baseUrl}}/
+
+### ============================================
+### 变量说明
+### ============================================
+# @baseUrl - API 基础地址
+# @token - JWT 访问令牌（从登录接口获取）
+# {{userId}} - 用户ID（替换为实际的用户ID）
+# {{roleId}} - 角色ID（替换为实际的角色ID）
+# {{permissionId}} - 权限ID（替换为实际的权限ID）
+# {{logId}} - 日志ID（替换为实际的日志ID）
