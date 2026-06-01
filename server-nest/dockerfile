@@ -1,0 +1,44 @@
+# =========================================================
+# 阶段一：Dependencies（安装完整依赖，包含开发依赖用于编译）
+# =========================================================
+FROM node:20-alpine AS deps
+# alpine 镜像默认没有 libc，有些原生 C++ 模块需要，这里加上基础构建工具
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# 先复制 package.json 相关文件，利用 Docker 缓存层
+COPY package*.json ./
+# 安装所有依赖（包含 devDependencies）
+RUN npm ci
+
+# =========================================================
+# 阶段二：Builder（复制源码并进行 NestJS 编译）
+# =========================================================
+FROM node:20-alpine AS builder
+WORKDIR /app
+# 从上一阶段把 node_modules 拿过来
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+# 执行 NestJS 官方打包命令，产出 dist 目录
+RUN npm run build
+
+# =========================================================
+# 阶段三：Runner（最终的生产运行镜像，体积最小）
+# =========================================================
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+SET NODE_ENV=production
+
+# 生产环境只需要运行时的依赖，重新干净地安装一次，剔除 devDependencies
+COPY package*.json ./
+RUN npm ci --only=production
+
+# 从 builder 阶段仅把打包好的 dist 目录复制过来
+COPY --from=builder /app/dist ./dist
+
+# NestJS 默认端口通常是 3000，如果你的 main.ts 里改了，这里也跟着改
+EXPOSE 3000
+
+# 启动 NestJS 服务
+CMD ["node", "dist/main.js"]

@@ -9,6 +9,9 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 
 async function bootstrap() {
+  // 在应用启动前打印
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('加载的 env 文件:', `.env.${process.env.NODE_ENV || 'development'}`);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // 配置 Session

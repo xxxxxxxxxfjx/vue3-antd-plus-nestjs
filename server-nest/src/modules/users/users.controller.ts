@@ -3,6 +3,7 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { ListUserDto } from './dto/list-user.dto';
 
 @ApiTags('用户管理')
 @Controller('v1/sys/users')
@@ -11,7 +12,7 @@ export class UsersController {
 
   @Post('list')
   @ApiOperation({ summary: '获取用户列表' })
-  async usersList(@Body() query?: Record<string, any>) {
+  async usersList(@Body() query?: ListUserDto) {
     return this.usersService.findAll(query);
   }
 

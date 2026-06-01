@@ -6,18 +6,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
   imports: [
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => {
-        const dbUrl = configService.get<string>('database.url');
-        const dbPort = configService.get<number>('database.port');
-        const dbName = configService.get<string>('database.name');
-        const uri = `mongodb://${dbUrl}:${dbPort}/${dbName}`;
-
-        return {
-          uri,
-          retryAttempts: 3,
-          retryDelay: 1000,
-        };
-      },
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('database.uri'),
+        retryAttempts: 3,
+        retryDelay: 1000,
+      }),
       inject: [ConfigService],
     }),
   ],
