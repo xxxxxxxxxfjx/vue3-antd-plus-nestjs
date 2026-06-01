@@ -30,12 +30,43 @@ export class UsersService {
     return createdUser.save();
   }
 
-  async findAll(query?: Record<string, any>): Promise<User[]> {
-    const filter: Record<string, any> = {};
-    if (query?.status !== undefined) {
-      filter.status = query.status;
+  async findAll(query?: Record<string, any>): Promise<any> {
+    const params = query?.params || {};
+    const current = Number(query?.pagination?.current || 1) || 1;
+    const pageSize = Number(query?.pagination?.pageSize || 15) || 15;
+    const sortColumn = query?.sort?.columnKey || 'createdAt';
+    const sortOrder = query?.sort?.order === 'ascend' ? 1 : -1;
+
+    const fuzzyParams: Record<string, any> = {};
+    for (const key in params) {
+      if (params.hasOwnProperty(key) && params[key]) {
+        fuzzyParams[key] = { $regex: new RegExp(params[key], 'i') };
+      }
     }
-    return this.userModel.find(filter).populate('roleId').exec();
+
+    const aggregationPipeline: any[] = [
+      { $match: fuzzyParams },
+      {
+        $lookup: {
+          from: 'roles',
+          localField: 'roleId',
+          foreignField: '_id',
+          as: 'role',
+        },
+      },
+      { $sort: { [sortColumn]: sortOrder } },
+      { $skip: (current - 1) * pageSize },
+      { $limit: pageSize },
+    ];
+
+    const [result, total] = await Promise.all([
+      this.userModel.aggregate(aggregationPipeline).exec(),
+      this.userModel.countDocuments(params).exec(),
+    ]);
+
+    return result.length > 0
+      ? { result, current, pageSize, total }
+      : { result: [], total };
   }
 
   async findOne(id: string): Promise<User> {
@@ -80,10 +111,15 @@ export class UsersService {
       throw new NotFoundException('无效的用户ID');
     }
 
-    const result = await this.userModel.findByIdAndDelete(id).exec();
-    if (!result) {
+    const user = await this.userModel.findById(id).exec();
+    if (!user) {
       throw new NotFoundException('用户不存在');
     }
+    if (user.username === 'admin') {
+      throw new ConflictException('超级管理员不能删除');
+    }
+
+    await this.userModel.findByIdAndDelete(id).exec();
   }
 
   async validatePassword(

@@ -36,7 +36,8 @@ export class RolesController {
 
   @Post('findOne')
   @ApiOperation({ summary: '查找指定的角色信息' })
-  async rolesFindOne(@Body('_id') id: string) {
+  async rolesFindOne(@Body() body: { id: string | { _id: string } }) {
+    const id = typeof body.id === 'object' ? body.id._id : body.id;
     return this.rolesService.findOne(id);
   }
 }

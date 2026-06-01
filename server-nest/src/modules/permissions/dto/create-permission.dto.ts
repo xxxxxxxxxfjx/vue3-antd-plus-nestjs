@@ -40,4 +40,9 @@ export class CreatePermissionDto {
   @IsOptional()
   @IsBoolean()
   disabled?: boolean;
+
+  @ApiPropertyOptional({ description: '自动生成CRUD子权限', default: false })
+  @IsOptional()
+  @IsBoolean()
+  autoSon?: boolean;
 }

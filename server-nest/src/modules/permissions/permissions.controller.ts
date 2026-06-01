@@ -11,8 +11,8 @@ export class PermissionsController {
 
   @Post('tree')
   @ApiOperation({ summary: '获取权限树' })
-  async permissionsTree() {
-    return this.permissionsService.findTree();
+  async permissionsTree(@Body() query?: Record<string, any>) {
+    return this.permissionsService.findTree(query);
   }
 
   @Post('list')
@@ -29,8 +29,8 @@ export class PermissionsController {
 
   @Post('delete')
   @ApiOperation({ summary: '删除权限' })
-  async permissionsDelete(@Body('_id') id: string) {
-    return this.permissionsService.remove(id);
+  async permissionsDelete(@Body() body: { _id: string; key: string }) {
+    return this.permissionsService.remove(body._id, body.key);
   }
 
   @Post('update')
@@ -42,7 +42,7 @@ export class PermissionsController {
 
   @Post('stop')
   @ApiOperation({ summary: '更新权限状态' })
-  async permissionsStop(@Body() body: { _id: string; status: boolean }) {
-    return this.permissionsService.update(body._id, { status: body.status });
+  async permissionsStop(@Body('_id') id: string) {
+    return this.permissionsService.toggleStatus(id);
   }
 }

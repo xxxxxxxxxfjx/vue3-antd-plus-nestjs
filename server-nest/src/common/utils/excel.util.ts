@@ -1,10 +1,19 @@
 import * as ExcelJS from 'exceljs';
 import { Response } from 'express';
+import * as path from 'path';
+import * as fs from 'fs';
 
 export interface ExcelColumn {
   header: string;
   key: string;
   width?: number;
+}
+
+export interface ExportOptions {
+  data: any[];
+  filename: string;
+  res: Response;
+  headers?: Record<string, string>;
 }
 
 export class ExcelUtil {
@@ -17,17 +26,14 @@ export class ExcelUtil {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Sheet1');
 
-    // 设置列
     worksheet.columns = columns.map((col) => ({
       header: col.header,
       key: col.key,
       width: col.width || 15,
     }));
 
-    // 添加数据
     worksheet.addRows(data);
 
-    // 设置表头样式
     worksheet.getRow(1).font = { bold: true };
     worksheet.getRow(1).fill = {
       type: 'pattern',
@@ -35,7 +41,6 @@ export class ExcelUtil {
       fgColor: { argb: 'FFE0E0E0' },
     };
 
-    // 设置响应头
     res.setHeader(
       'Content-Type',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -45,9 +50,96 @@ export class ExcelUtil {
       `attachment; filename=${encodeURIComponent(filename)}.xlsx`,
     );
 
-    // 写入响应
     await workbook.xlsx.write(res);
     res.end();
+  }
+
+  static async export(options: ExportOptions): Promise<void> {
+    const { data, filename, res, headers } = options;
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Sheet1');
+
+    if (data.length > 0) {
+      // 自动从数据生成列
+      const keys = headers ? Object.keys(headers) : Object.keys(data[0]);
+      const columns = keys.map((key) => ({
+        header: headers?.[key] || key,
+        key,
+        width: 15,
+      }));
+
+      worksheet.columns = columns;
+
+      // 如果指定了headers，则重命名列头
+      if (headers) {
+        worksheet.columns.forEach((col: any, i: number) => {
+          col.header = headers[keys[i]] || keys[i];
+        });
+      }
+    }
+
+    worksheet.addRows(data);
+
+    worksheet.getRow(1).font = { bold: true };
+
+    res.setHeader(
+      'Content-Type',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    );
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename=${encodeURIComponent(filename)}`,
+    );
+
+    await workbook.xlsx.write(res);
+    res.end();
+  }
+
+  static async toJson(filePath: string): Promise<any[]> {
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.readFile(filePath);
+    const worksheet = workbook.worksheets[0];
+
+    const result: any[] = [];
+    const headers: string[] = [];
+
+    worksheet.eachRow((row, rowNumber) => {
+      if (rowNumber === 1) {
+        row.eachCell((cell) => {
+          headers.push(cell.value?.toString() || '');
+        });
+      } else {
+        const rowData: any = {};
+        row.eachCell((cell, colNumber) => {
+          rowData[headers[colNumber - 1]] = cell.value;
+        });
+        result.push(rowData);
+      }
+    });
+
+    return result;
+  }
+
+  static async download(
+    fileFullPath: string,
+    fileName: string,
+    res: Response,
+  ): Promise<void> {
+    if (!fs.existsSync(fileFullPath)) {
+      throw new Error(`文件不存在: ${fileFullPath}`);
+    }
+
+    res.setHeader(
+      'Content-Type',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    );
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename=${encodeURIComponent(fileName)}`,
+    );
+
+    const fileStream = fs.createReadStream(fileFullPath);
+    fileStream.pipe(res);
   }
 
   static async createTemplate(
@@ -58,14 +150,12 @@ export class ExcelUtil {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Template');
 
-    // 设置列
     worksheet.columns = columns.map((col) => ({
       header: col.header,
       key: col.key,
       width: col.width || 15,
     }));
 
-    // 设置表头样式
     worksheet.getRow(1).font = { bold: true };
     worksheet.getRow(1).fill = {
       type: 'pattern',
@@ -74,14 +164,12 @@ export class ExcelUtil {
     };
     worksheet.getRow(1).font = { color: { argb: 'FFFFFFFF' }, bold: true };
 
-    // 添加示例数据
     const exampleRow = {};
     columns.forEach((col) => {
       exampleRow[col.key] = `示例${col.header}`;
     });
     worksheet.addRow(exampleRow);
 
-    // 设置响应头
     res.setHeader(
       'Content-Type',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
