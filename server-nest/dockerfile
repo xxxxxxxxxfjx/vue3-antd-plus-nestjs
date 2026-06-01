@@ -2,14 +2,16 @@
 # 阶段一：Deps（安装完整依赖，包含开发依赖用于编译）
 # =========================================================
 FROM node:20-alpine AS deps
-# alpine 镜像默认没有 libc，有些原生 C++ 模块（如 bcrypt 等）需要，这里加上基础构建工具
+# alpine 镜像默认没有 libc，有些原生 C++ 模块需要，这里加上基础构建工具
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# 先复制 package.json 相关文件，充分利用 Docker 缓存层
+# 先复制 package.json 相关文件
 COPY package*.json ./
-# 安装所有依赖（包含 devDependencies）
-RUN npm ci
+
+# 💡【核心修正】：放弃死板的 npm ci，改用对个人项目最友好的普通安装
+# 加上 --no-audit 和 --no-fund 可以关闭安全审计与赞助提示，大幅提升海外打包速度！
+RUN npm install --no-audit --no-fund
 
 # =========================================================
 # 阶段二：Builder（复制源码并进行 NestJS 编译）
@@ -31,19 +33,17 @@ WORKDIR /app
 # 设置生产环境环境变量
 ENV NODE_ENV=production
 
-# 💡【核心优化：高兼容性、闭坑设计】
-# 1. 放弃在新版 npm 中容易报错的 "npm ci --only=production"
-# 2. 直接从 deps 阶段把完整的 node_modules 复制过来
+# 直接从 deps 阶段把完整的 node_modules 复制过来
 COPY --from=deps /app/node_modules ./node_modules
 COPY package*.json ./
 
-# 3. 使用新版和旧版 npm 都完美支持的 prune 命令，干净、快速地修剪掉 devDependencies
-RUN npm prune --omit=dev
+# 干净、快速地修剪掉开发依赖（devDependencies），不留任何痕迹
+RUN npm prune --omit=dev --no-audit
 
 # 从 builder 阶段仅把打包好的 dist 目录复制过来
 COPY --from=builder /app/dist ./dist
 
-# NestJS 默认端口通常是 3000
+# NestJS 默认端口
 EXPOSE 3000
 
 # 启动 NestJS 服务
