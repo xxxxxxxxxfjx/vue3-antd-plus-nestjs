@@ -28,7 +28,7 @@ RUN npm run build
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-SET NODE_ENV=production
+ENV NODE_ENV=production
 
 # 生产环境只需要运行时的依赖，重新干净地安装一次，剔除 devDependencies
 COPY package*.json ./
