@@ -17,7 +17,7 @@ import jwtConfig from './config/jwt.config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['.env.development', '.env.production'],
+      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
       load: [databaseConfig, jwtConfig],
     }),
     DatabaseModule,
