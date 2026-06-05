@@ -1,0 +1,46 @@
+name: Build and Deploy Admin Frontend to Alibaba Cloud
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ADMIN/**' # 💡 核心：只有当你改动 ADMIN 文件夹下的代码时，才会触发这条流水线
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 拉取代码
+    - name: 1. Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. 设置 Node.js 环境（用于本地构建打包）
+    - name: 2. Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        cache-dependency-path: 'ADMIN/package-lock.json' # 自动缓存依赖，加速后续打包
+
+    # 3. 安装依赖并执行打包
+    - name: 3. Install dependencies and build
+      run: |
+        cd ADMIN
+        npm install --no-audit --no-fund
+        npm run build # 💡 执行完后会在 ADMIN 目录下产出一个 dist 文件夹
+
+    # 4. 利用 SSH 密钥，把打包好的 dist 文件夹上传到阿里云服务器
+    - name: 4. Deploy to Server via SSH
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: root
+        key: ${{ secrets.SERVER_SSH_KEY }} # 复用后端配好的安全密钥
+        source: "ADMIN/dist/*"
+        strip_components: 2 # 剥离掉外层 ADMIN/dist 路径，只保留里面的静态文件
+        target: "/usr/share/nginx/html/admin" # 💡 塞进服务器 Nginx 的 admin 子目录下
